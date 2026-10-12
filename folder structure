@@ -1,0 +1,27 @@
+ecommerce-customer-segmentation/
+├── data/
+│   ├── raw/                  # Original UCI Online Retail II dataset (e.g., online_retail_II.xlsx)
+│   └── processed/            # Cleaned data and customer-level RFM/behavioral feature matrix
+├── notebooks/                # Jupyter / Colab notebooks for EDA and experimentation
+│   ├── 01_eda_and_cleaning.ipynb
+│   ├── 02_feature_engineering.ipynb
+│   └── 03_autoencoder_clustering_experiments.ipynb
+├── models/                   # Saved model artifacts
+│   ├── scaler.pkl            # Trained StandardScaler object
+│   ├── autoencoder_encoder.h5 # Saved PyTorch / Keras encoder model
+│   └── kmeans_model.pkl      # Saved clustering model
+├── src/                      # Production source code
+│   ├── __init__.py
+│   ├── data_preprocessing.py # Cleaning, handling missing IDs, filtering 'C' invoices
+│   ├── feature_engineering.py# RFM calculation + extended behavioral metrics
+│   ├── model.py              # Autoencoder neural network architecture & training logic
+│   ├── clustering.py         # Clustering execution and evaluation (Silhouette, Davies-Bouldin)
+│   └── utils.py              # Helper functions (plotting, metrics calculation)
+├── app/                      # Streamlit dashboard
+│   ├── main.py               # Streamlit application entry point
+│   └── components.py         # UI widgets, layout charts, and t-SNE/UMAP plots
+├── tests/                    # Unit tests for preprocessing and feature functions
+│   └── test_feature_engineering.py
+├── .gitignore                # Excludes large data files, virtual environments, bytecode
+├── requirements.txt          # Project dependencies (pandas, scikit-learn, tensorflow/torch, streamlit)
+└── README.md                 # Project description, setup instructions, and architecture
